@@ -10,12 +10,13 @@
 <meta property="og:description" content="Найдите ближайший магазин и вступайте в чат в Telegram или MAX.">
 <meta property="og:image" content="logo.jpg">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%A0%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
 :root{
   --cream:#FBF6EE; --card:#FFFFFF; --ink:#182130; --muted:#5d6675;
   --amber:#E7A11B; --amber-d:#B77E0A; --amber-soft:#FBEFD4;
-  --green:#22503F; --green-l:#2E6B54; --green-soft:#E6F0EA;
+  --blue:#1D3A6E; --blue-l:#2C4E8C; --blue-soft:#E7EDF7;
   --sky:#101c33; --sky2:#1d2c4c;
   --terra:#E27A43; --terra-d:#C0562A; --terra-soft:#FBEBDF;
   --line:#ECE3D4; --line-2:#f2ebdd;
@@ -44,7 +45,7 @@ h1,h2,h3{margin:0;line-height:1.12;letter-spacing:-.02em;font-weight:800}
 .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:18px}
 .brand img{width:38px;height:38px;border-radius:10px;object-fit:cover;
   object-position:50% 42%;box-shadow:0 2px 8px rgba(24,33,48,.25)}
-.brand b{color:var(--green)}
+.brand b{color:var(--amber-d)}
 .nav-links{display:flex;gap:26px;margin-left:20px}
 .nav-links a{font-weight:600;color:var(--muted);font-size:15px;transition:color .15s}
 .nav-links a:hover{color:var(--ink)}
@@ -60,8 +61,8 @@ h1,h2,h3{margin:0;line-height:1.12;letter-spacing:-.02em;font-weight:800}
 .btn-amber:hover{background:#f2ad24;box-shadow:0 12px 26px -8px rgba(231,161,27,.75)}
 .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
 .btn-ghost:hover{border-color:#dccfb6}
-.btn-dark{background:var(--green);color:#fff}
-.btn-dark:hover{background:var(--green-l)}
+.btn-dark{background:var(--blue);color:#fff}
+.btn-dark:hover{background:var(--blue-l)}
 .btn svg{width:18px;height:18px;flex:none}
 .nav-links .m-hide,.nav-cta .m-hide{}
 
@@ -127,10 +128,10 @@ section{scroll-margin-top:80px}
   font-size:14px;padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;
   transition:.15s;font-family:inherit}
 .chip:hover{border-color:#dccfb6;color:var(--ink)}
-.chip.on{background:var(--green);color:#fff;border-color:var(--green)}
+.chip.on{background:var(--blue);color:#fff;border-color:var(--blue)}
 .geo-note{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);
   margin:16px 2px 0;min-height:20px}
-.geo-note b{color:var(--green)}
+.geo-note b{color:var(--blue)}
 
 /* grid + cards */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;
@@ -155,7 +156,8 @@ section{scroll-margin-top:80px}
 .tag.fresh{color:#1f8a5a;background:#e2f6ec;padding:5px 10px;font-weight:800}
 .tag.new{color:#b77e0a;background:var(--amber-soft);padding:5px 10px;font-weight:800}
 .dist{font-size:13px;font-weight:800;color:var(--amber-d);background:var(--amber-soft);
-  padding:5px 10px;border-radius:999px;display:none;align-items:center;gap:5px;white-space:nowrap}
+  padding:5px 10px;border-radius:999px;display:none;align-items:center;gap:5px;white-space:nowrap;
+  margin-left:auto}
 .dist.show{display:inline-flex}
 .card h3{font-size:21px;margin:14px 0 8px}
 .addr-row{display:flex;align-items:center;gap:12px;justify-content:space-between}
@@ -182,10 +184,12 @@ section{scroll-margin-top:80px}
   font-size:14.5px;padding:11px;border-radius:11px;border:1px solid transparent;transition:.15s}
 .join:active{transform:translateY(1px)}
 .join svg{width:17px;height:17px}
-.join.tg{background:var(--tg-soft);color:var(--tg-ink);border-color:var(--tg-bd)}
-.join.tg:hover{background:#daeefa;border-color:#b9ddf1}
-.join.max{background:var(--max-soft);color:var(--max-ink);border-color:var(--max-bd)}
-.join.max:hover{background:#e6dffb;border-color:#cfc0f7}
+.join.tg{background:linear-gradient(135deg,#2AABEE,#229ED9);color:#fff;border-color:transparent;
+  box-shadow:0 8px 18px -10px rgba(34,158,217,.7)}
+.join.tg:hover{background:linear-gradient(135deg,#3fb8f7,#1c86ba);box-shadow:0 10px 22px -8px rgba(34,158,217,.8)}
+.join.max{background:var(--max-grad);color:#fff;border-color:transparent;
+  box-shadow:0 8px 18px -10px rgba(120,20,255,.55)}
+.join.max:hover{background:linear-gradient(135deg,#5a30ff,#a520ff);box-shadow:0 10px 22px -8px rgba(120,20,255,.65)}
 .empty{text-align:center;color:var(--muted);padding:50px 0;font-size:16px;display:none}
 
 /* ---------- CATEGORIES ---------- */
@@ -202,15 +206,15 @@ section{scroll-margin-top:80px}
 .band{padding:64px 0}
 .band-in{position:relative;overflow:hidden;border-radius:28px;padding:52px 44px;color:#fff;
   background:radial-gradient(700px 320px at 88% -20%,#3c4a72,rgba(60,74,114,0) 62%),
-   linear-gradient(150deg,#132038,#22503F 130%);
+   linear-gradient(150deg,#132038,#1D3A6E 130%);
   display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;
   box-shadow:var(--shadow-lg)}
 .band-in h2{font-size:clamp(24px,3vw,34px)}
 .band-in p{color:#c9d3e6;margin:14px 0 0;font-size:16px;max-width:44ch}
 .band-actions{display:flex;flex-direction:column;gap:12px}
 .band .join{font-size:16px;padding:15px;border-radius:14px}
-.band .join.tg{background:#fff;color:#127bb0}
-.band .join.tg:hover{background:#eef8fd}
+.band .join.tg{background:linear-gradient(135deg,#2AABEE,#229ED9);color:#fff}
+.band .join.tg:hover{background:linear-gradient(135deg,#3fb8f7,#1c86ba)}
 .band .join.max{background:var(--max-grad);color:#fff}
 
 /* ---------- FOOTER ---------- */
@@ -457,8 +461,8 @@ function render(){
     const nearest = userPos && idx===0;
     const c=el('article','card'+(nearest?' nearest':''));
     const op=isOpen(s);
-    const tagCls = s.isNew?'tag new': s.fresh?'tag fresh':'tag';
-    const tagTxt = s.isNew?'⭐ Новый магазин': s.fresh?'Формат FRESH (продукты)':'Магазин сети';
+    const tagCls = s.isNew?'tag new': s.fresh?'tag fresh':'';
+    const tagTxt = s.isNew?'⭐ Новый магазин': s.fresh?'Формат FRESH (продукты)':'';
     const distHtml = s.dist!=null ? `<span class="dist show">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>${fmtDist(s.dist)}</span>` : '';
     const route=`https://yandex.ru/maps/?rtext=~${s.lat},${s.lon}&rtt=auto`;
@@ -467,7 +471,7 @@ function render(){
       <span class="ribbon">★ Ближайший к вам</span>
       ${photo}
       <div class="card-top">
-        <span class="${tagCls}">${tagTxt}</span>
+        ${tagTxt ? `<span class="${tagCls}">${tagTxt}</span>` : ''}
         ${distHtml}
       </div>
       <h3>${s.city}</h3>
