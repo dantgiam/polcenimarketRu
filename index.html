@@ -65,6 +65,8 @@ h1,h2,h3{margin:0;line-height:1.12;letter-spacing:-.02em;font-weight:800}
 .btn-ghost:hover{border-color:#dccfb6}
 .btn-dark{background:var(--blue);color:#fff}
 .btn-dark:hover{background:var(--blue-l)}
+.btn-outline-amber{background:rgba(231,161,27,.14);color:#ffdb96;border:1.5px solid rgba(231,161,27,.6)}
+.btn-outline-amber:hover{background:rgba(231,161,27,.22);border-color:rgba(231,161,27,.85)}
 .btn svg{width:18px;height:18px;flex:none}
 .nav-links .m-hide,.nav-cta .m-hide{}
 
@@ -161,6 +163,7 @@ section{scroll-margin-top:80px}
 .addr-row{display:flex;align-items:flex-start;gap:12px;justify-content:space-between}
 .addr{color:var(--muted);font-size:15px;display:flex;gap:8px;align-items:flex-start;min-width:0}
 .addr svg{width:17px;height:17px;color:var(--terra);flex:none;margin-top:2px}
+.addr-note{opacity:.75;display:inline-block}
 .hours-time{flex:none;color:var(--ink);font-weight:800;font-size:15px;
   font-variant-numeric:tabular-nums;white-space:nowrap;padding-top:1px}
 .status-row{display:flex;align-items:center;justify-content:space-between;gap:8px;
@@ -179,7 +182,7 @@ section{scroll-margin-top:80px}
 .route:hover svg{color:var(--terra-d)}
 .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;
   padding-top:16px;border-top:1px solid var(--line-2)}
-.join{display:flex;align-items:center;justify-content:flex-start;gap:9px;font-weight:700;
+.join{display:flex;align-items:center;justify-content:center;gap:9px;font-weight:700;
   font-size:14px;padding:8px 12px;border-radius:11px;border:1.5px solid var(--line);
   background:#fff;color:var(--ink);transition:.15s}
 .join:active{transform:translateY(1px)}
@@ -196,7 +199,8 @@ section{scroll-margin-top:80px}
 .cats{padding:56px 0}
 .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px}
 .cat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:26px 22px;box-shadow:var(--shadow);transition:transform .16s,box-shadow .2s}
+  padding:26px 22px;box-shadow:var(--shadow);transition:transform .16s,box-shadow .2s;
+  display:flex;flex-direction:column;align-items:center;text-align:center}
 .cat:hover{transform:translateY(-3px);box-shadow:0 22px 44px -20px rgba(24,33,48,.25)}
 .cat .emo{font-size:30px}
 .cat b{display:block;margin-top:14px;font-size:18px;font-weight:800}
@@ -210,8 +214,9 @@ section{scroll-margin-top:80px}
 .how-card:hover{transform:translateY(-3px);box-shadow:0 22px 44px -20px rgba(24,33,48,.25)}
 .how-icon{font-size:32px;width:64px;height:64px;margin:0 auto 18px;border-radius:16px;
   background:var(--amber-soft);display:grid;place-items:center}
-.how-card b{display:block;font-size:18px;font-weight:800;margin-bottom:8px}
+.how-card>b{display:block;font-size:18px;font-weight:800;margin-bottom:8px}
 .how-card span{display:block;color:var(--muted);font-size:14.5px;line-height:1.5;max-width:32ch;margin:0 auto}
+.how-card span b{color:var(--ink);font-weight:800}
 .how-tag{display:inline-block;margin-top:18px;font-weight:800;font-size:13px;color:var(--amber-d);
   background:var(--amber-soft);padding:7px 14px;border-radius:999px}
 .how-or{font-weight:800;color:var(--muted);font-size:13px;text-transform:uppercase;
@@ -257,9 +262,12 @@ footer{background:#0f1a2e;color:#aeb9cf;padding:52px 0 34px;margin-top:20px}
   .nav-links{display:none}
 }
 @media(max-width:560px){
+  .wrap{padding:0 16px}
+  .nav-in{height:60px;gap:10px}
   .nav-cta .pill-discount{display:none}
-  .brand span.full{display:none}
-  .nav-cta .btn-amber{padding:11px 15px}
+  .brand{font-size:16px;gap:9px}
+  .brand img{width:34px;height:34px}
+  .nav-cta .btn-amber{padding:10px 14px;font-size:14px}
   .toolbar{position:static}
   .toolbar-row{flex-wrap:wrap}
   #geoBtn{order:-1;flex:1 1 100%;padding:15px}
@@ -270,6 +278,9 @@ footer{background:#0f1a2e;color:#aeb9cf;padding:52px 0 34px;margin-top:20px}
   .floaty.a{left:0;top:6px}.floaty.b{right:0;bottom:14px}
   .hero-actions .btn{flex:1 1 100%}
   .foot-cols{gap:32px}
+}
+@media(max-width:380px){
+  .brand span.full{display:none}
 }
 </style>
 </head>
@@ -302,13 +313,13 @@ footer{background:#0f1a2e;color:#aeb9cf;padding:52px 0 34px;margin-top:20px}
     <div class="hero-copy">
       <span class="eyebrow" style="color:#f0bf5c">Сеть магазинов · Кубань и Адыгея</span>
       <h1>Товары с маркетплейсов по скидке <span class="accent">−50%</span></h1>
-      <p class="lead">Мебель, техника, одежда и товары для дома по половине цены. Найдите ближайший магазин и вступайте в чат — там все новинки и акции.</p>
+      <p class="lead">Мебель, техника, одежда и товары для дома за половину цены! Найдите ближайший магазин и вступайте в чат — там все новинки и акции, отвечаем мгновенно!</p>
       <div class="hero-actions">
         <a href="#stores" class="btn btn-amber" onclick="setTimeout(locate,600)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           Найти магазин рядом
         </a>
-        <a href="#how" class="btn btn-ghost" style="background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.2)">Как работает скидка</a>
+        <a href="#how" class="btn btn-outline-amber">Как работает скидка?</a>
       </div>
       <div class="hero-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
@@ -385,20 +396,20 @@ footer{background:#0f1a2e;color:#aeb9cf;padding:52px 0 34px;margin-top:20px}
     <div class="head">
       <span class="eyebrow">Как это устроено</span>
       <h2>Как работает скидка −50%</h2>
-      <p>Смотрим цену прямо на карточке товара на маркетплейсе — и в магазине вы платите ровно половину.</p>
+      <p>Всё прозрачно — вы смотрите цену прямо с карточки товара на маркетплейсе, и на кассе платите ровно половину.</p>
     </div>
     <div class="how-grid">
       <div class="how-card">
         <div class="how-icon">🏷️</div>
         <b>Штрихкод есть и читается</b>
-        <span>Сканируем его на Ozon и смотрим цену прямо на карточке товара.</span>
+        <span>Сканируем его на Ozon и смотрим цену в карточке товара — именно от неё пол цены.</span>
         <div class="how-tag">Пол цены от Ozon</div>
       </div>
       <div class="how-or"><span>или</span></div>
       <div class="how-card">
         <div class="how-icon" style="background:var(--blue-soft)">📷</div>
         <b>Штрихкода нет или не считывается</b>
-        <span>Ищем товар по фото на Wildberries — с доставкой до 5 дней.</span>
+        <span>Ищем товар по фото на Wildberries с доставкой <b>до 5 дней!</b> Тут пол цены от WB.</span>
         <div class="how-tag" style="color:var(--blue);background:var(--blue-soft)">Пол цены от WB</div>
       </div>
     </div>
@@ -521,7 +532,7 @@ function render(){
       <div class="addr-row">
         <div class="addr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>${s.addr}${s.note?`<br><span style="opacity:.75">${s.note}</span>`:''}</span>
+          <span>${s.addr}<br><span class="addr-note"${s.note?'':' style="visibility:hidden"'}>${s.note||'—'}</span></span>
         </div>
         <span class="hours-time">${String(s.open).padStart(2,'0')}:00–${String(s.close).padStart(2,'0')}:00</span>
       </div>
